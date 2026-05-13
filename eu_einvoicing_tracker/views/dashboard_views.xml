@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_eu_mandate_kanban" model="ir.ui.view">
+        <field name="name">eu.einvoicing.mandate.kanban</field>
+        <field name="model">eu.einvoicing.mandate</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status" class="o_kanban_dashboard">
+                <field name="country_id"/>
+                <field name="b2b_date"/>
+                <field name="days_to_deadline"/>
+                <field name="format_label"/>
+                <field name="odoo_readiness"/>
+                <field name="odoo_module_hint"/>
+                <field name="status"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <strong><field name="country_id"/></strong>
+                                <span class="float-end">
+                                    <field name="scope" widget="badge"/>
+                                </span>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <div t-if="record.b2b_date.raw_value">
+                                    <i class="fa fa-calendar"/>
+                                    <strong> <field name="b2b_date"/></strong>
+                                    <span t-if="record.days_to_deadline.raw_value &gt; 0"
+                                          t-attf-class="ms-2 badge #{record.days_to_deadline.raw_value &lt; 90 ? 'text-bg-danger' : 'text-bg-warning'}">
+                                        <field name="days_to_deadline"/> days
+                                    </span>
+                                </div>
+                                <div t-if="record.format_label.raw_value">
+                                    <i class="fa fa-file-code-o"/> <field name="format_label"/>
+                                </div>
+                                <div>
+                                    <i class="fa fa-cube"/>
+                                    <field name="odoo_readiness"/>
+                                </div>
+                                <div t-if="record.odoo_module_hint.raw_value" class="text-muted small">
+                                    <field name="odoo_module_hint"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_eu_dashboard" model="ir.actions.act_window">
+        <field name="name">E-Invoicing Dashboard</field>
+        <field name="res_model">eu.einvoicing.mandate</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_eu_mandate_search"/>
+        <field name="context">{'search_default_my_country': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No mandates loaded.</p>
+            <p>
+                Mandates seed in automatically from <code>data/eu_mandates_data.xml</code>
+                when the module is installed. Run <code>--update eu_einvoicing_tracker</code>
+                if the list is empty.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- ===================================================================
+         Snapshot: 2026-05-13. Verify against the European Commission
+         eInvoicing Country Factsheets before quoting. Dates have shifted
+         multiple times (e.g. Slovenia postponed once, Portugal QES delayed).
+         ================================================================ -->
+
+    <!-- ============ ALREADY LIVE (B2B mandatory) ============ -->
+    <record id="mandate_it_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.it"/>
+        <field name="scope">b2b</field>
+        <field name="status">live</field>
+        <field name="b2g_date">2014-06-06</field>
+        <field name="b2b_date">2019-01-01</field>
+        <field name="format_label">FatturaPA XML</field>
+        <field name="channel_label">SdI (Sistema di Interscambio)</field>
+        <field name="legal_basis">Agenzia delle Entrate</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">l10n_it_fatturapa_out, l10n_it_fatturapa_in, l10n_it_sdi_channel</field>
+    </record>
+
+    <record id="mandate_ro_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.ro"/>
+        <field name="scope">b2b</field>
+        <field name="status">live</field>
+        <field name="b2g_date">2021-11-01</field>
+        <field name="b2b_date">2024-07-01</field>
+        <field name="b2b_phase_note">B2C from 2025-01-01</field>
+        <field name="format_label">UBL 2.1 CIUS-RO</field>
+        <field name="channel_label">RO e-Factura (ANAF)</field>
+        <field name="legal_basis">ANAF</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">l10n_ro_account_edi_ubl, l10n_ro_account_anaf_sync</field>
+    </record>
+
+    <record id="mandate_hu_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.hu"/>
+        <field name="scope">b2b</field>
+        <field name="status">live</field>
+        <field name="b2b_date">2021-01-04</field>
+        <field name="b2b_phase_note">Real-time invoice reporting all transactions, no threshold</field>
+        <field name="format_label">NAV Online Invoice XML + Peppol</field>
+        <field name="channel_label">NAV RTIR</field>
+        <field name="legal_basis">NAV (Nemzeti Adó- és Vámhivatal)</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">l10n_hu_edi</field>
+    </record>
+
+    <!-- ============ 2026 mandates ============ -->
+    <record id="mandate_be_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.be"/>
+        <field name="scope">b2b</field>
+        <field name="status">live</field>
+        <field name="b2b_date">2026-01-01</field>
+        <field name="b2b_phase_note">3-month tolerance period through 31 March 2026</field>
+        <field name="format_label">Peppol BIS Billing 3.0 / UBL 2.1</field>
+        <field name="channel_label">Peppol 4-corner; 5-corner from 2028</field>
+        <field name="legal_basis">FPS Finance / SPF Finances</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+    </record>
+
+    <record id="mandate_pl_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.pl"/>
+        <field name="scope">b2b</field>
+        <field name="status">live</field>
+        <field name="b2b_date">2026-02-01</field>
+        <field name="b2b_phase_note">2026-02-01 large (turnover >PLN 200M); 2026-04-01 all VAT-registered; penalty grace through end-2026</field>
+        <field name="format_label">FA_VAT XML</field>
+        <field name="channel_label">KSeF (Krajowy System e-Faktur) API</field>
+        <field name="legal_basis">Ministry of Finance Poland</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">l10n_pl_edi_ksef (Community 18/19, deployed 2026-01-30)</field>
+    </record>
+
+    <record id="mandate_hr_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.hr"/>
+        <field name="scope">b2b</field>
+        <field name="status">live</field>
+        <field name="b2b_date">2026-01-01</field>
+        <field name="format_label">UBL 2.1 / Peppol BIS</field>
+        <field name="channel_label">Servis eRačun / Peppol</field>
+        <field name="legal_basis">Porezna uprava (Croatian Tax Administration)</field>
+        <field name="odoo_readiness">peppol_only</field>
+        <field name="odoo_module_hint">account_peppol (no Croatia-specific gateway module)</field>
+    </record>
+
+    <record id="mandate_gr_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.gr"/>
+        <field name="scope">b2b</field>
+        <field name="status">live</field>
+        <field name="b2b_date">2026-02-02</field>
+        <field name="b2b_phase_note">Large enterprises (gross revenue > EUR 1M); SMEs phasing later</field>
+        <field name="format_label">myDATA XML</field>
+        <field name="channel_label">AADE myDATA platform</field>
+        <field name="legal_basis">AADE (Independent Authority for Public Revenue)</field>
+        <field name="odoo_readiness">partner</field>
+        <field name="odoo_module_hint">Multiple partner modules; no first-party SME tier</field>
+    </record>
+
+    <record id="mandate_dk_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.dk"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2g_date">2005-02-01</field>
+        <field name="b2b_date">2026-07-01</field>
+        <field name="b2b_phase_note">Bookkeeping Act requires in-house systems be e-invoice-capable; third-party systems already required</field>
+        <field name="format_label">Peppol BIS 3.0 / OIOUBL</field>
+        <field name="channel_label">NemHandel + Peppol</field>
+        <field name="legal_basis">Erhvervsstyrelsen (Danish Business Authority)</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol, l10n_dk</field>
+    </record>
+
+    <!-- ============ 2027 mandates ============ -->
+    <record id="mandate_fr_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.fr"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2b_date">2026-09-01</field>
+        <field name="b2b_phase_note">2026-09-01: all firms receive + large/mid issue; 2027-09-01: SMEs/micro must issue</field>
+        <field name="format_label">Factur-X / UBL / CII</field>
+        <field name="channel_label">Plateforme Agréée (PA) -> PPF</field>
+        <field name="legal_basis">DGFiP</field>
+        <field name="odoo_readiness">partner</field>
+        <field name="odoo_module_hint">Odoo registered under reservation as PA; l10n_fr_chorus_facturx for B2G interim</field>
+    </record>
+
+    <record id="mandate_es_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.es"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2b_date">2026-09-01</field>
+        <field name="b2b_phase_note">2026-09-01 large (turnover >EUR 8M); 2027-09-01 SMEs</field>
+        <field name="format_label">Facturae XML, VeriFactu</field>
+        <field name="channel_label">FACe / VeriFactu / SII</field>
+        <field name="legal_basis">AEAT (Agencia Tributaria)</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">l10n_es_edi_facturae, l10n_es_edi_verifactu, l10n_es_edi_sii</field>
+    </record>
+
+    <record id="mandate_de_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.de"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2b_date">2027-01-01</field>
+        <field name="b2b_phase_note">Receive from 2025-01-01; issue from 2027-01-01 (turnover >EUR 800k); all from 2028-01-01</field>
+        <field name="format_label">XRechnung / ZUGFeRD (Factur-X)</field>
+        <field name="channel_label">Email + Peppol</field>
+        <field name="legal_basis">Bundesministerium der Finanzen</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">l10n_de_edi, account_invoice_facturx</field>
+    </record>
+
+    <record id="mandate_sk_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.sk"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2b_date">2027-01-01</field>
+        <field name="b2b_phase_note">5-corner Peppol model replacing IS EFA</field>
+        <field name="format_label">UBL 2.1 / Peppol BIS</field>
+        <field name="channel_label">Peppol 5-corner</field>
+        <field name="legal_basis">Financna sprava SR</field>
+        <field name="odoo_readiness">peppol_only</field>
+        <field name="odoo_module_hint">account_peppol (no Slovakia-specific gateway yet)</field>
+    </record>
+
+    <record id="mandate_ee_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.ee"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2b_date">2027-01-01</field>
+        <field name="b2b_phase_note">Buyer-choice EN16931 from 2025-07-01; full B2B/B2G mandate 2027</field>
+        <field name="format_label">EN 16931 / Peppol BIS 3.0</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">Maksu- ja Tolliamet (Estonian Tax Authority)</field>
+        <field name="odoo_readiness">peppol_only</field>
+        <field name="odoo_module_hint">account_peppol</field>
+    </record>
+
+    <record id="mandate_no_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.no"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2b_date">2027-01-01</field>
+        <field name="format_label">EHF 3.0 (= Peppol BIS Billing 3.0)</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">Norwegian Ministry of Finance</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+    </record>
+
+    <record id="mandate_pt_qes" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.pt"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2g_date">2021-01-01</field>
+        <field name="b2b_date">2027-01-01</field>
+        <field name="b2b_phase_note">QES required on all non-EDI / PDF invoices from 2027-01-01; SAF-T accounting due 2028</field>
+        <field name="format_label">CIUS-PT / QES-signed PDF</field>
+        <field name="channel_label">Peppol + ATCUD/QR + SAF-T (PT)</field>
+        <field name="legal_basis">Autoridade Tributaria e Aduaneira</field>
+        <field name="odoo_readiness">partner</field>
+        <field name="odoo_module_hint">l10n_pt_saft (QES integration gap)</field>
+    </record>
+
+    <!-- ============ 2028 mandates ============ -->
+    <record id="mandate_de_full" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.de"/>
+        <field name="scope">b2g</field>
+        <field name="status">upcoming</field>
+        <field name="b2b_date">2028-01-01</field>
+        <field name="b2b_phase_note">All businesses must issue (no turnover threshold)</field>
+        <field name="format_label">XRechnung / ZUGFeRD</field>
+        <field name="channel_label">Email + Peppol</field>
+        <field name="legal_basis">Bundesministerium der Finanzen</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">l10n_de_edi</field>
+    </record>
+
+    <record id="mandate_ie_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.ie"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2b_date">2028-11-01</field>
+        <field name="b2b_phase_note">Large corps Nov 2028; intra-EU traders Nov 2029; full Jul 2030</field>
+        <field name="format_label">Peppol BIS 3.0</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">Revenue Commissioners</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+    </record>
+
+    <record id="mandate_lv_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.lv"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2g_date">2025-01-01</field>
+        <field name="b2b_date">2028-01-01</field>
+        <field name="format_label">Peppol BIS 3.0</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">VID (Latvian State Revenue Service)</field>
+        <field name="odoo_readiness">peppol_only</field>
+        <field name="odoo_module_hint">account_peppol</field>
+    </record>
+
+    <record id="mandate_si_b2b" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.si"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2b_date">2028-01-01</field>
+        <field name="b2b_phase_note">Act on Exchange of E-Invoices adopted by National Assembly 2025-10-23; 8-day reporting</field>
+        <field name="format_label">e-SLOG / EN 16931</field>
+        <field name="channel_label">e-SLOG XML to FURS within 8 days</field>
+        <field name="legal_basis">FURS (Financna uprava RS)</field>
+        <field name="odoo_readiness">gap</field>
+        <field name="odoo_module_hint">No module on apps.odoo.com - greenfield opportunity</field>
+    </record>
+
+    <!-- ============ Bulgaria SAF-T (intermediate step) ============ -->
+    <record id="mandate_bg_saft" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.bg"/>
+        <field name="scope">b2b</field>
+        <field name="status">upcoming</field>
+        <field name="b2b_date">2027-01-01</field>
+        <field name="b2b_phase_note">SAF-T reporting mandatory medium enterprises Jan 2027; B2B e-invoicing within ViDA scope 2028-2030</field>
+        <field name="format_label">SAF-T XML (transition); Peppol BIS for ViDA</field>
+        <field name="channel_label">NRA SAF-T portal</field>
+        <field name="legal_basis">NRA (Bulgarian Revenue Agency)</field>
+        <field name="odoo_readiness">peppol_only</field>
+    </record>
+
+    <!-- ============ B2G-only / no B2B mandate (Peppol fallback) ============ -->
+    <record id="mandate_at_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.at"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="b2g_date">2014-01-01</field>
+        <field name="format_label">Peppol BIS 3.0 / ebInterface</field>
+        <field name="channel_label">e-rechnung.gv.at + Peppol</field>
+        <field name="legal_basis">BMF Austria</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol, l10n_at</field>
+        <field name="notes">No B2B mandate planned; ViDA fallback applies 2030.</field>
+    </record>
+
+    <record id="mandate_nl_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.nl"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="format_label">Peppol BIS / NLCIUS</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">Logius</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol, l10n_nl</field>
+        <field name="notes">No domestic B2B mandate; ViDA fallback 2030.</field>
+    </record>
+
+    <record id="mandate_se_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.se"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="b2g_date">2019-04-01</field>
+        <field name="format_label">Peppol BIS 3.0</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">Skatteverket / DIGG</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+        <field name="notes">B2B mandate under government study; recommendation expected 2027.</field>
+    </record>
+
+    <record id="mandate_fi_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.fi"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="b2g_date">2019-04-01</field>
+        <field name="format_label">EN 16931 / Peppol BIS</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">Valtiokonttori</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+        <field name="notes">B2G for transactions >EUR 10k; no B2B mandate.</field>
+    </record>
+
+    <record id="mandate_cz_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.cz"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="format_label">ISDOC / UBL 2.1 / Peppol</field>
+        <field name="channel_label">NEN platform + Peppol</field>
+        <field name="legal_basis">Ministry of Finance CR</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol, l10n_cz</field>
+        <field name="notes">No B2B mandate.</field>
+    </record>
+
+    <record id="mandate_lu_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.lu"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="format_label">Peppol BIS 3.0</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">CTIE Luxembourg</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+        <field name="notes">B2G receive only; no B2B mandate.</field>
+    </record>
+
+    <record id="mandate_mt_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.mt"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="format_label">Peppol BIS 3.0</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">CFR Malta</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+        <field name="notes">B2G mandatory; B2B by ViDA 2030.</field>
+    </record>
+
+    <record id="mandate_cy_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.cy"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="b2g_date">2019-04-18</field>
+        <field name="format_label">Peppol BIS 3.0</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">Treasury of the Republic of Cyprus</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+    </record>
+
+    <record id="mandate_lt_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.lt"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="format_label">Peppol BIS 3.0 / E.saskaita</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">VMI (Lithuanian Tax Inspectorate)</field>
+        <field name="odoo_readiness">peppol_only</field>
+        <field name="odoo_module_hint">account_peppol</field>
+        <field name="notes">No B2B mandate yet; ViDA fallback 2030.</field>
+    </record>
+
+    <record id="mandate_is_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.is"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="format_label">Peppol BIS 3.0</field>
+        <field name="channel_label">Peppol</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+    </record>
+
+    <record id="mandate_li_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.li"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="format_label">Peppol BIS 3.0</field>
+        <field name="channel_label">Peppol</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+    </record>
+
+    <record id="mandate_ch_b2g" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.ch"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="format_label">Peppol / Swiss eBill</field>
+        <field name="channel_label">Peppol; SIX eBill domestic</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol, l10n_ch</field>
+        <field name="notes">Federal B2G mandatory; no general B2B mandate.</field>
+    </record>
+
+    <record id="mandate_gb_peppol" model="eu.einvoicing.mandate">
+        <field name="country_id" ref="base.uk"/>
+        <field name="scope">b2g</field>
+        <field name="status">b2g_only</field>
+        <field name="format_label">Peppol BIS 3.0</field>
+        <field name="channel_label">Peppol</field>
+        <field name="legal_basis">NHS England / HMRC consultation in progress</field>
+        <field name="odoo_readiness">first_party</field>
+        <field name="odoo_module_hint">account_peppol</field>
+        <field name="notes">NHS Peppol mandatory; B2B mandate under consultation 2026.</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_eu_mandate_list" model="ir.ui.view">
+        <field name="name">eu.einvoicing.mandate.list</field>
+        <field name="model">eu.einvoicing.mandate</field>
+        <field name="arch" type="xml">
+            <list string="EU E-Invoicing Mandates" default_order="b2b_date,country_id">
+                <field name="country_id"/>
+                <field name="scope"/>
+                <field name="status" widget="badge"
+                       decoration-success="status == 'live'"
+                       decoration-warning="status == 'upcoming'"
+                       decoration-muted="status == 'b2g_only'"/>
+                <field name="b2b_date"/>
+                <field name="days_to_deadline"
+                       optional="show"
+                       decoration-danger="days_to_deadline &lt; 90 and days_to_deadline &gt; 0"
+                       decoration-warning="days_to_deadline &gt;= 90 and days_to_deadline &lt; 365"/>
+                <field name="format_label"/>
+                <field name="channel_label" optional="hide"/>
+                <field name="odoo_readiness" widget="badge"
+                       decoration-success="odoo_readiness == 'first_party'"
+                       decoration-info="odoo_readiness == 'oca'"
+                       decoration-warning="odoo_readiness == 'partner'"
+                       decoration-danger="odoo_readiness == 'gap'"
+                       decoration-muted="odoo_readiness == 'peppol_only'"/>
+                <field name="odoo_module_hint" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eu_mandate_form" model="ir.ui.view">
+        <field name="name">eu.einvoicing.mandate.form</field>
+        <field name="model">eu.einvoicing.mandate</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="country_id"/>
+                        <h1>
+                            <field name="country_id" placeholder="Country"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Mandate">
+                            <field name="scope"/>
+                            <field name="status"/>
+                            <field name="b2g_date"/>
+                            <field name="b2b_date"/>
+                            <field name="b2b_phase_note"/>
+                            <field name="legal_basis"/>
+                        </group>
+                        <group string="Technical">
+                            <field name="format_label"/>
+                            <field name="channel_label"/>
+                            <field name="odoo_readiness"/>
+                            <field name="odoo_module_hint"/>
+                            <field name="source_url" widget="url"/>
+                        </group>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eu_mandate_search" model="ir.ui.view">
+        <field name="name">eu.einvoicing.mandate.search</field>
+        <field name="model">eu.einvoicing.mandate</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="country_id"/>
+                <field name="format_label"/>
+                <field name="odoo_module_hint"/>
+                <filter name="my_country" string="My country"
+                        domain="[('is_company_country', '=', True)]"/>
+                <filter name="live" string="Live"
+                        domain="[('status', '=', 'live')]"/>
+                <filter name="upcoming" string="Upcoming"
+                        domain="[('status', '=', 'upcoming')]"/>
+                <filter name="gap" string="Gap (no module)"
+                        domain="[('odoo_readiness', '=', 'gap')]"/>
+                <filter name="under_90_days" string="Under 90 days"
+                        domain="[('b2b_date', '!=', False),
+                                ('b2b_date', '&gt;=', context_today().strftime('%Y-%m-%d')),
+                                ('b2b_date', '&lt;=', (context_today() + relativedelta(days=90)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Group by">
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                    <filter name="group_readiness" string="Odoo readiness" context="{'group_by': 'odoo_readiness'}"/>
+                    <filter name="group_country" string="Country" context="{'group_by': 'country_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eu_mandates" model="ir.actions.act_window">
+        <field name="name">Mandates</field>
+        <field name="res_model">eu.einvoicing.mandate</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_eu_mandate_search"/>
+        <field name="context">{'search_default_upcoming': 1}</field>
+    </record>
+
+</odoo>

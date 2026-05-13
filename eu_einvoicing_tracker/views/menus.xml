@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_eu_einvoicing_root"
+              name="E-Invoicing"
+              web_icon="eu_einvoicing_tracker,static/description/icon.png"
+              sequence="95"/>
+
+    <menuitem id="menu_eu_einvoicing_dashboard"
+              name="Dashboard"
+              parent="menu_eu_einvoicing_root"
+              action="action_eu_dashboard"
+              sequence="10"/>
+
+    <menuitem id="menu_eu_einvoicing_mandates"
+              name="Mandates"
+              parent="menu_eu_einvoicing_root"
+              action="action_eu_mandates"
+              sequence="20"/>
+
+</odoo>

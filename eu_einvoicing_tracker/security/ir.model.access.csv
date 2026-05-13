@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_eu_mandate_user,eu.einvoicing.mandate user,model_eu_einvoicing_mandate,base.group_user,1,0,0,0
+access_eu_mandate_manager,eu.einvoicing.mandate manager,model_eu_einvoicing_mandate,account.group_account_manager,1,1,1,1
+access_eu_reminder_system,eu.einvoicing.reminder system,model_eu_einvoicing_reminder,base.group_system,1,1,1,1
+access_eu_reminder_manager,eu.einvoicing.reminder manager,model_eu_einvoicing_reminder,account.group_account_manager,1,0,0,0

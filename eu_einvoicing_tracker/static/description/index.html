@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+</head>
+<body>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">EU E-Invoicing Mandate Tracker</h2>
+    <h3 class="oe_slogan">Know every deadline. Skip the panic.</h3>
+    <p class="oe_mt32">
+      Twelve EU countries push new domestic B2B e-invoicing mandates live
+      between 2026 and 2028. Each one has a different format, a different
+      channel, a different legal authority, and a different penalty.
+      This module turns that chaos into <strong>one Odoo dashboard</strong>
+      &mdash; filtered to your company&rsquo;s country, with automated
+      deadline reminders, format cheatsheets, and direct hints to which
+      Odoo module covers each mandate.
+    </p>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced text-center">
+    <img src="cover.png" alt="The 2026 to 2028 EU e-invoicing wave at a glance"
+         style="max-width: 100%; height: auto; border-radius: 8px;"/>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">1 January 2026: Belgium goes live. Did anyone tell your CFO?</h2>
+    <p>
+      Belgium B2B was mandatory on 1 January 2026, with graduated penalties
+      from &euro;1,500 to &euro;5,000 per infringement once the 3-month
+      tolerance ends. Poland&rsquo;s KSeF follows on 1 February for large
+      taxpayers and 1 April for everyone else. Croatia, Greece, Denmark
+      pile on through 2026. France issuing kicks in for SMEs on
+      1 September 2027. Germany flips on for &gt;&euro;800k issuers on
+      1 January 2027 &mdash; and for <em>everyone</em> on 1 January 2028.
+    </p>
+    <p>
+      <strong>Every quarter, the dates shift.</strong> Slovenia postponed
+      once already. Portugal delayed its QES requirement. Romania moved
+      the B2C goalposts. Trying to track this manually on the European
+      Commission&rsquo;s factsheet pages is a part-time job, and missing
+      a date is a real-money penalty.
+    </p>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">32 countries. Every deadline. One dashboard.</h2>
+    <p>
+      Ships with a curated mandate dataset covering all 27 EU member states
+      plus Norway, Iceland, Liechtenstein, Switzerland, and the United Kingdom.
+      Each entry carries:
+    </p>
+    <ul class="oe_mt32" style="line-height: 2em;">
+      <li><strong>B2B + B2G dates</strong> with phasing notes (turnover
+        thresholds, tolerance periods, size-based rollouts).</li>
+      <li><strong>Required format</strong> &mdash; Peppol BIS 3.0, FatturaPA,
+        KSeF FA_VAT, e-SLOG, XRechnung, ZUGFeRD, Factur-X, VeriFactu,
+        myDATA, RO e-Factura, NAV RTIR, OIOUBL, and more.</li>
+      <li><strong>Transmission channel</strong> &mdash; SdI, ANAF, FACe,
+        Peppol 4-corner, Peppol 5-corner, NemHandel, KSeF API.</li>
+      <li><strong>Legal authority</strong> for verification (DGFiP, AEAT,
+        AdE, NAV, AADE, FURS, etc.).</li>
+      <li><strong>Odoo readiness rating</strong> &mdash; first-party, OCA,
+        partner, Peppol-only, or gap &mdash; with the suggested technical
+        module name for each mandate.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced text-center">
+    <img src="feature_dashboard.png" alt="Per-company dashboard, filtered to your country"
+         style="max-width: 100%; height: auto; border-radius: 8px;"/>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Reminders at 180, 90, 30, 7 days</h2>
+    <p>
+      A daily cron checks every active mandate against your company&rsquo;s
+      country and posts an in-app reminder on each mandate&rsquo;s chatter
+      at the four classic compliance windows: <strong>six months out</strong>
+      for budget season, <strong>three months out</strong> for vendor
+      selection, <strong>one month out</strong> for go-live readiness,
+      and <strong>one week out</strong> for crisis mode. Account managers
+      in your company are auto-tagged. Duplicate-sending is prevented
+      by an internal reminder log.
+    </p>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced text-center">
+    <img src="feature_timeline.png" alt="The 2026 to 2028 mandate calendar"
+         style="max-width: 100%; height: auto; border-radius: 8px;"/>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Why this exists</h2>
+    <p>
+      Finance teams in 2026 cannot rely on the EC factsheet site alone &mdash;
+      it&rsquo;s comprehensive, but it&rsquo;s not yours. It doesn&rsquo;t
+      tell you that <em>your</em> French Odoo install needs a Plateforme
+      Agr&eacute;&eacute;e link, that <em>your</em> Slovenian subsidiary
+      will need an e-SLOG module that doesn&rsquo;t exist on apps.odoo.com
+      yet, that <em>your</em> Polish entity has a 60-day window to onboard
+      onto KSeF or eat the fine.
+    </p>
+    <p>
+      This module makes that mapping concrete: it knows your company&rsquo;s
+      country, it surfaces only the mandates that apply to you, and it
+      tells you exactly which Odoo module you need (or warns you that
+      none exists yet).
+    </p>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced text-center">
+    <img src="feature_comparison.png" alt="vs. checking factsheets manually every quarter"
+         style="max-width: 100%; height: auto; border-radius: 8px;"/>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Pricing</h2>
+    <p>
+      <strong>One-time per database. Free updates per Odoo version.</strong>
+      Pay once, install on as many databases of that Odoo version as you
+      need. When you upgrade to a new major Odoo version, the module
+      ships free for that version too while you remain a customer of the
+      current one.
+    </p>
+    <p class="oe_mt32">
+      Lightweight by design: depends only on <code>base</code>,
+      <code>mail</code>, and <code>account</code>. Works on Odoo 18 Community
+      and Enterprise. No external SaaS, no per-seat fees, no API keys, no
+      tracking. Mandate data is bundled in the module itself &mdash; the
+      module works offline.
+    </p>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Roadmap</h2>
+    <p>
+      Future companion modules will cover the country mandates where no
+      first-party Odoo solution exists yet:
+    </p>
+    <ul class="oe_mt32" style="line-height: 2em;">
+      <li><strong>Slovenia e-SLOG B2B Connector</strong> &mdash; 1 January 2028
+        mandate, 8-day FURS reporting, e-SLOG XML.</li>
+      <li><strong>Slovakia Peppol 5-Corner Connector</strong> &mdash;
+        1 January 2027 IS EFA replacement.</li>
+      <li><strong>Portugal QES Plug-In</strong> &mdash; Qualified Electronic
+        Signature requirement from 1 January 2027 on non-EDI PDF invoices.</li>
+    </ul>
+    <p>
+      Owning the Tracker today means earlier access and discounted bundles
+      on companion modules as they ship.
+    </p>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Snapshot date and verification</h2>
+    <p>
+      Mandate dates in this module reflect the publicly available state
+      as of <strong>13 May 2026</strong>. Dates have shifted multiple
+      times in the past 12 months &mdash; Slovenia postponed once,
+      Portugal delayed QES, Latvia moved B2B to 2028. Updates ship in
+      future module versions. For any deadline you are about to act on,
+      verify against the European Commission&rsquo;s
+      <a href="https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467108874/eInvoicing+Country+Factsheets+for+each+Member+State+and+other+countries">eInvoicing Country Factsheets</a>.
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
