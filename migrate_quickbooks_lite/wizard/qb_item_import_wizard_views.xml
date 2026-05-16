@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_qb_item_import_wizard_form" model="ir.ui.view">
+        <field name="name">qb.item.import.wizard.form</field>
+        <field name="model">qb.item.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import QuickBooks Items / Products">
+                <field name="state" invisible="1"/>
+
+                <group invisible="state != 'draft'">
+                    <group string="Step 1 — Export from QuickBooks">
+                        <div colspan="2" class="text-muted">
+                            <p><b>QuickBooks Online:</b> Sales → Products and Services → click the export icon → Export to Excel → save as CSV.</p>
+                            <p><b>QuickBooks Desktop:</b> Lists → Item List → Excel → Export All Items → save as CSV.</p>
+                            <p>Import this <b>after</b> Chart of Accounts so income and expense account references can be matched.</p>
+                            <p>Inventory Parts import as Goods (non-tracked). Stock tracking, valuation, and multi-account mapping are Pro features.</p>
+                        </div>
+                    </group>
+                    <group string="Step 2 — Upload">
+                        <field name="csv_file" filename="csv_filename" required="1"/>
+                        <field name="csv_filename" invisible="1"/>
+                        <field name="overwrite"/>
+                    </group>
+                </group>
+
+                <group invisible="state != 'done'">
+                    <field name="log" nolabel="1" readonly="1" widget="text"/>
+                </group>
+
+                <footer>
+                    <button name="action_import"
+                            type="object"
+                            string="Import"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_qb_item_import_wizard" model="ir.actions.act_window">
+        <field name="name">Import Items / Products from QuickBooks</field>
+        <field name="res_model">qb.item.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

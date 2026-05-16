@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>QuickBooks to Odoo Lite</title>
+</head>
+<body>
+
+<section class="bg-success text-white text-center p-5">
+    <div class="container">
+        <h1 class="display-4 mb-3" style="font-weight: 700;">Migrate from QuickBooks to Odoo</h1>
+        <p class="lead mb-4">Move QuickBooks master data into Odoo in minutes. No API setup. No developer account. Export CSV from QuickBooks, upload to Odoo, click Import.</p>
+        <span class="badge badge-light p-2" style="font-size: 14px; font-weight: 600;">LITE EDITION &middot; FREE &middot; ODOO 18</span>
+    </div>
+</section>
+
+<section class="container py-5">
+    <h2 class="text-success mb-4 pb-2 border-bottom">What this module does</h2>
+    <p class="lead">The Lite edition imports the four pieces of master data that every QuickBooks migration starts with. Export CSV from QuickBooks, upload to Odoo, the wizard auto-detects your columns, you click Import. That is the entire workflow.</p>
+    <div class="row mt-4">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success" style="font-weight: 600;">1 &mdash; Chart of Accounts</h5>
+                    <ul class="mb-0">
+                        <li>Up to 100 accounts per file</li>
+                        <li>QuickBooks types mapped to Odoo account types (70+ mappings)</li>
+                        <li>QBO and QuickBooks Desktop CSV formats both supported</li>
+                        <li>Auto-generates account codes when QuickBooks did not ship them</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success" style="font-weight: 600;">2 &mdash; Customers</h5>
+                    <ul class="mb-0">
+                        <li>Up to 100 customers per file</li>
+                        <li>Name, email, phone, full billing address</li>
+                        <li>Country and state auto-looked-up against Odoo masters</li>
+                        <li>Payment terms matched by name (Net 30, Due on receipt, etc.)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success" style="font-weight: 600;">3 &mdash; Vendors</h5>
+                    <ul class="mb-0">
+                        <li>Up to 100 vendors per file</li>
+                        <li>1099 tracking flag preserved as a partner note (US)</li>
+                        <li>Tax ID / EIN / VAT carried over</li>
+                        <li>Vendor payment terms mapped</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success" style="font-weight: 600;">4 &mdash; Items / Products</h5>
+                    <ul class="mb-0">
+                        <li>Up to 100 products per file</li>
+                        <li>Service, Inventory, and Non-Inventory item types handled</li>
+                        <li>Sales price and unit cost preserved</li>
+                        <li>Income and expense accounts linked from your imported chart</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container py-5">
+    <h2 class="text-success mb-4 pb-2 border-bottom">How to use it</h2>
+    <div class="row">
+        <div class="col-12 mb-3">
+            <div class="card border-success">
+                <div class="card-body">
+                    <span class="badge badge-success mr-2 p-2" style="font-size: 14px;">1</span>
+                    <strong>Install this module.</strong> A new "Migrate from QuickBooks" app appears in the top bar.
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mb-3">
+            <div class="card border-success">
+                <div class="card-body">
+                    <span class="badge badge-success mr-2 p-2" style="font-size: 14px;">2</span>
+                    <strong>Export CSV from QuickBooks.</strong> Every list page in QuickBooks Online and Desktop has an "Export to Excel" option. Save the file as CSV.
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mb-3">
+            <div class="card border-success">
+                <div class="card-body">
+                    <span class="badge badge-success mr-2 p-2" style="font-size: 14px;">3</span>
+                    <strong>Run the 4 importers in order.</strong> Chart of Accounts first (so products can reference accounts), then Customers, then Vendors, then Items.
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mb-3">
+            <div class="card border-success">
+                <div class="card-body">
+                    <span class="badge badge-success mr-2 p-2" style="font-size: 14px;">4</span>
+                    <strong>Review the import log.</strong> The wizard reports created / updated / skipped counts and any row-level issues with line numbers.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container py-5">
+    <h2 class="text-success mb-4 pb-2 border-bottom">Compatibility</h2>
+    <table class="table table-striped">
+        <tbody>
+            <tr><th class="text-success" style="width: 35%;">Odoo</th><td>Version 18.0 &mdash; Community and Enterprise</td></tr>
+            <tr><th class="text-success">QuickBooks Online</th><td>All tiers (Simple Start, Essentials, Plus, Advanced)</td></tr>
+            <tr><th class="text-success">QuickBooks Desktop</th><td>Pro / Premier / Enterprise (via CSV export)</td></tr>
+            <tr><th class="text-success">QuickBooks Self-Employed</th><td>Via CSV export</td></tr>
+            <tr><th class="text-success">File format</th><td>CSV with auto-detected encoding (UTF-8, cp1252, latin-1) and delimiter (comma, tab, semicolon)</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="container py-5">
+    <h2 class="text-success mb-4 pb-2 border-bottom">Lite vs Pro &mdash; what each edition includes</h2>
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>Feature</th>
+                <th class="text-center">Lite (this)</th>
+                <th class="text-center">Pro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Chart of Accounts</td><td class="text-center text-success" style="font-weight: 700;">&check; 100 max</td><td class="text-center text-success" style="font-weight: 700;">&check; Unlimited</td></tr>
+            <tr><td>Customers / Vendors / Items</td><td class="text-center text-success" style="font-weight: 700;">&check; 100 each</td><td class="text-center text-success" style="font-weight: 700;">&check; Unlimited</td></tr>
+            <tr><td>Invoices, Bills, Payments</td><td class="text-center text-danger" style="font-weight: 700;">&times;</td><td class="text-center text-success" style="font-weight: 700;">&check;</td></tr>
+            <tr><td>Journal Entries</td><td class="text-center text-danger" style="font-weight: 700;">&times;</td><td class="text-center text-success" style="font-weight: 700;">&check;</td></tr>
+            <tr><td>Direct API sync (OAuth)</td><td class="text-center text-danger" style="font-weight: 700;">&times;</td><td class="text-center text-success" style="font-weight: 700;">&check;</td></tr>
+            <tr><td>Sales tax mapping</td><td class="text-center text-danger" style="font-weight: 700;">&times;</td><td class="text-center text-success" style="font-weight: 700;">&check;</td></tr>
+            <tr><td>Bank reconciliation status preserved</td><td class="text-center text-danger" style="font-weight: 700;">&times;</td><td class="text-center text-success" style="font-weight: 700;">&check;</td></tr>
+            <tr><td>Attachments (PDFs on invoices)</td><td class="text-center text-danger" style="font-weight: 700;">&times;</td><td class="text-center text-success" style="font-weight: 700;">&check;</td></tr>
+            <tr><td>Customer:Job hierarchy mapping</td><td class="text-center text-danger" style="font-weight: 700;">&times;</td><td class="text-center text-success" style="font-weight: 700;">&check;</td></tr>
+            <tr><td>Class &amp; Location to analytic</td><td class="text-center text-danger" style="font-weight: 700;">&times;</td><td class="text-center text-success" style="font-weight: 700;">&check;</td></tr>
+            <tr><td>Multi-year historical data</td><td class="text-center text-danger" style="font-weight: 700;">&times;</td><td class="text-center text-success" style="font-weight: 700;">&check;</td></tr>
+            <tr><td>Inventory stock tracking &amp; valuation</td><td class="text-center text-danger" style="font-weight: 700;">&times;</td><td class="text-center text-success" style="font-weight: 700;">&check;</td></tr>
+        </tbody>
+    </table>
+    <div class="alert alert-info mt-3">
+        <strong>Outgrew Lite?</strong> The Pro edition removes the 100-record cap and adds full transactional migration (invoices, bills, payments, journal entries), direct API sync via OAuth, attachment migration, sales tax mapping, and bank reconciliation status preservation.
+    </div>
+</section>
+
+<section class="container py-5">
+    <h2 class="text-success mb-4 pb-2 border-bottom">What gets handled correctly</h2>
+    <ul>
+        <li><strong>QBO and QBD CSV formats</strong> &mdash; auto-detects column variants like "Account" vs "Name", "Type" vs "Account Type"</li>
+        <li><strong>Encoding sniffing</strong> &mdash; UTF-8 (QBO default), cp1252 (QBD Windows), latin-1 fallback</li>
+        <li><strong>Delimiter sniffing</strong> &mdash; comma, tab, or semicolon</li>
+        <li><strong>Junk title rows</strong> &mdash; QuickBooks exports often prepend metadata; the parser finds the real header automatically</li>
+        <li><strong>QuickBooks type mapping</strong> &mdash; 70+ entries covering both common names ("Bank") and detail types ("Sales of Product Income")</li>
+        <li><strong>Code generation</strong> &mdash; assigns sensible account numbers when QuickBooks did not ship them (1000s for cash, 4000s for income, etc.)</li>
+        <li><strong>Idempotent re-import</strong> &mdash; re-running the wizard skips existing records by default; tick "Update existing" to overwrite</li>
+        <li><strong>Country and state lookup</strong> &mdash; matches against Odoo&apos;s res.country and res.country.state automatically</li>
+        <li><strong>Payment terms matching</strong> &mdash; looks up "Net 30", "Net 15", "Due on receipt" against existing Odoo payment terms by name</li>
+        <li><strong>Accounting-style negatives</strong> &mdash; handles "(125.00)" in price columns</li>
+    </ul>
+</section>
+
+<section class="container py-5">
+    <h2 class="text-success mb-4 pb-2 border-bottom">Data privacy</h2>
+    <p>All processing happens inside your Odoo instance. The module reads CSV files you upload yourself and writes the resulting records to your own database. No data is sent to any external service. The module makes no outbound network calls.</p>
+</section>
+
+<section class="container py-5">
+    <h2 class="text-success mb-4 pb-2 border-bottom">Support</h2>
+    <p>Found a bug, hit an edge case, or have a QuickBooks export format that does not parse cleanly? Email <a href="mailto:entrophy9709@gmail.com">entrophy9709@gmail.com</a> with the column headers from your CSV (no actual customer data needed) and we will add support.</p>
+</section>
+
+<section class="bg-light p-4 text-center text-muted border-top" style="font-size: 13px;">
+    Built by Entrophy &middot; LGPL-3 &middot; Odoo 18 Community &amp; Enterprise
+</section>
+
+</body>
+</html>

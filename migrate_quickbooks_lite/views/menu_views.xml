@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="menu_qb_migration_root"
+              name="Migrate from QuickBooks"
+              sequence="90"/>
+
+    <menuitem id="menu_qb_migration_accounts"
+              name="1. Chart of Accounts"
+              parent="menu_qb_migration_root"
+              action="action_qb_account_import_wizard"
+              sequence="10"/>
+
+    <menuitem id="menu_qb_migration_customers"
+              name="2. Customers"
+              parent="menu_qb_migration_root"
+              action="action_qb_customer_import_wizard"
+              sequence="20"/>
+
+    <menuitem id="menu_qb_migration_vendors"
+              name="3. Vendors"
+              parent="menu_qb_migration_root"
+              action="action_qb_vendor_import_wizard"
+              sequence="30"/>
+
+    <menuitem id="menu_qb_migration_items"
+              name="4. Items / Products"
+              parent="menu_qb_migration_root"
+              action="action_qb_item_import_wizard"
+              sequence="40"/>
+
+</odoo>

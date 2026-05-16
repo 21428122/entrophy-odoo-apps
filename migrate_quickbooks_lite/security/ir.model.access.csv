@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_qb_account_import_wizard,qb.account.import.wizard,model_qb_account_import_wizard,account.group_account_manager,1,1,1,1
+access_qb_customer_import_wizard,qb.customer.import.wizard,model_qb_customer_import_wizard,account.group_account_manager,1,1,1,1
+access_qb_vendor_import_wizard,qb.vendor.import.wizard,model_qb_vendor_import_wizard,account.group_account_manager,1,1,1,1
+access_qb_item_import_wizard,qb.item.import.wizard,model_qb_item_import_wizard,account.group_account_manager,1,1,1,1
